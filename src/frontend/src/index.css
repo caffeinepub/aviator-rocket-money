@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Casino dark theme */
+    --background: 0.12 0.038 248;
+    --foreground: 0.97 0.01 250;
+    --card: 0.16 0.04 248;
+    --card-foreground: 0.97 0.01 250;
+    --popover: 0.16 0.04 248;
+    --popover-foreground: 0.97 0.01 250;
+    --primary: 0.82 0.16 83;
+    --primary-foreground: 0.12 0.038 248;
+    --secondary: 0.24 0.042 248;
+    --secondary-foreground: 0.97 0.01 250;
+    --muted: 0.2 0.035 248;
+    --muted-foreground: 0.65 0.03 248;
+    --accent: 0.82 0.16 83;
+    --accent-foreground: 0.12 0.038 248;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.97 0.01 250;
+    --border: 0.24 0.042 248;
+    --input: 0.2 0.035 248;
+    --ring: 0.82 0.16 83;
+    --chart-1: 0.82 0.16 83;
+    --chart-2: 0.72 0.18 151;
+    --chart-3: 0.62 0.22 25;
+    --chart-4: 0.65 0.18 270;
+    --chart-5: 0.58 0.2 200;
+    --sidebar: 0.14 0.038 248;
+    --sidebar-foreground: 0.97 0.01 250;
+    --sidebar-primary: 0.82 0.16 83;
+    --sidebar-primary-foreground: 0.12 0.038 248;
+    --sidebar-accent: 0.2 0.035 248;
+    --sidebar-accent-foreground: 0.97 0.01 250;
+    --sidebar-border: 0.24 0.042 248;
+    --sidebar-ring: 0.82 0.16 83;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+@keyframes rocket-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(1deg);
+  }
+}
+
+@keyframes explosion-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px oklch(0.82 0.16 83 / 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px oklch(0.82 0.16 83 / 0.9));
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes crash-flash {
+  0% {
+    background-color: oklch(0.62 0.22 25 / 0);
+  }
+  30% {
+    background-color: oklch(0.62 0.22 25 / 0.15);
+  }
+  100% {
+    background-color: oklch(0.62 0.22 25 / 0);
+  }
+}
+
+.animate-rocket-shake {
+  animation: rocket-shake 0.15s ease-in-out infinite;
+}
+.animate-explosion {
+  animation: explosion-pop 0.4s ease-out forwards;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+.animate-crash-flash {
+  animation: crash-flash 0.6s ease-out forwards;
+}
+
+.game-grid {
+  background-image: linear-gradient(
+      oklch(0.97 0.01 250 / 0.04) 1px,
+      transparent 1px
+    ), linear-gradient(90deg, oklch(0.97 0.01 250 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, oklch(0.82 0.16 83), oklch(0.75 0.18 70));
+}
+
+.bet-btn {
+  @apply px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-150;
+  background: oklch(0.2 0.035 248);
+  color: oklch(0.97 0.01 250);
+  border: 1px solid oklch(0.28 0.042 248);
+}
+.bet-btn:hover {
+  background: oklch(0.82 0.16 83);
+  color: oklch(0.12 0.038 248);
+  border-color: oklch(0.82 0.16 83);
+}
+.bet-btn.active {
+  background: oklch(0.82 0.16 83);
+  color: oklch(0.12 0.038 248);
+  border-color: oklch(0.82 0.16 83);
+}
+
+.multiplier-font {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: oklch(0.28 0.042 248);
+  border-radius: 2px;
+}
